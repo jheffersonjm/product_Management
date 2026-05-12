@@ -1,0 +1,92 @@
+
+<mat-card class="cadastro-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Cadastrar Produto</h1>
+      <br>
+
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<br>
+
+<mat-card class="form-card">
+  <mat-card-content>
+    <br>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Nome</mat-label>
+      <input
+        matInput
+        required
+        name="nome"
+        type="text"
+        [(ngModel)]="nome"
+      >
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Descrição</mat-label>
+      <input
+        matInput
+        required
+        name="descricao"
+        type="text"
+        [(ngModel)]="descricao"
+      >
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Quantidade</mat-label>
+      <input
+        matInput
+        required
+        name="quantidade"
+        type="number"
+        [(ngModel)]="quantidade"
+      >
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>Preço</mat-label>
+      <input
+        matInput
+        required
+        name="preco"
+        type="number"
+        [(ngModel)]="preco"
+      >
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline" class="campo">
+      <mat-label>URL do Produto</mat-label>
+      <input
+        matInput
+        required
+        name="url"
+        type="url"
+        [(ngModel)]="url"
+      >
+    </mat-form-field>
+<br>
+    @if (atualiza === false) {
+      <button mat-raised-button color="primary" class="btn-cadastrar" (click)="criarProdutos()">
+        <mat-icon>add_circle</mat-icon>
+        Cadastrar
+      </button>
+    }
+    @if (atualiza !== false) {
+      <button mat-raised-button color="primary" class="btn-cadastrar" (click)="Atualizar()">
+        <mat-icon>add_circle</mat-icon>
+        Atualizar
+      </button>
+    }
+
+
+  </mat-card-content>
+</mat-card>

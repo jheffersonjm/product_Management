@@ -1,0 +1,30 @@
+/* App Component Styles */
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: var(--shadow-md);
+}
+
+.app-header h1 {
+  color: var(--text-white);
+  margin: 0;
+}
+
+.app-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+}

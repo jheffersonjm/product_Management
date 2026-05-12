@@ -1,0 +1,44 @@
+
+
+
+<mat-card class="pesquisas">
+  <mat-card-header>
+    <mat-card-title>
+      <p>Tela de ProdutosDto</p>
+    </mat-card-title>
+     </mat-card-header>
+     <mat-card-content>
+    <mat-form-field>
+      <mat-label>
+        <p style="color: black" class="Gmail">Gmail</p>
+      </mat-label>
+
+      <input matInput type="Gmail"
+             required [(ngModel)]="gmail"
+             class="Inputgmail">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>
+        <p style="color: black">Senha</p>
+      </mat-label>
+
+      <input matInput required nome="Password" type="Password" [(ngModel)]="senha" maxlength="20">
+    </mat-form-field>
+    <br>
+    <button mat-flat-button color="primary" (click)="logar()" class="Logar">
+      Logar
+    </button>
+
+    <br>
+  <br>
+    <br>
+
+    <button mat-flat-button color="primary" (click)="cadastra()" class="Logar">
+      Cadastra novo Usuario
+    </button>
+  </mat-card-content>
+
+
+</mat-card>
+
