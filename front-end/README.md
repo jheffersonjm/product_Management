@@ -121,15 +121,6 @@ app/
 - Dados de usuários e produtos não persistem ao recarregar a página.
 - Ainda não há integração completa com backend real para autenticação.
 - Não há controle de rota protegida por guard (AuthGuard).
-- Método `AtualizarProdutos` do `FormsDashboardService` ainda não implementado.
-
-## Próximas Melhorias Sugeridas
-
-- Persistir usuários e produtos em backend real (ou localStorage como etapa intermediária).
-- Criar `AuthGuard` para proteger as rotas `/dashboard` e `/forms-dashboard`.
-- Padronizar mensagens e validações com Angular Reactive Forms.
-- Implementar `AtualizarProdutos` no `FormsDashboardService`.
-- Adicionar testes unitários para serviços e componentes de login, cadastro e produtos.
 
 ## Referências
 
