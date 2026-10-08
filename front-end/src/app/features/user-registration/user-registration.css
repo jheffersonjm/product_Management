@@ -1,155 +1,168 @@
-/* User Registration Component Styles */
+:host {
+  display: block;
+  min-height: 100vh;
+}
 
 .registration-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-color) 100%);
-  padding: var(--spacing-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(103, 58, 183, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(33, 150, 243, 0.18), transparent 30%),
+    linear-gradient(135deg, #f3f5ff 0%, #eef4ff 100%);
 }
 
-.registration-container {
-  width: 100%;
-  max-width: 600px;
-  background-color: var(--bg-white);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
+.registration-card {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: 1.05fr 1.2fr;
   overflow: hidden;
-  animation: slideUp 0.5s ease-out;
+  border-radius: 28px;
+  box-shadow: 0 28px 70px rgba(72, 88, 182, 0.18);
+  border: 1px solid rgba(72, 88, 182, 0.08);
+  background: rgba(255, 255, 255, 0.96);
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.brand-panel {
+  background: linear-gradient(135deg, #1b2d82 0%, #4f46e5 50%, #7c3aed 100%);
+  color: #fff;
+  padding: 42px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
-.card-header {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
-  color: var(--text-white);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  text-align: center;
+.brand-panel::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
 }
 
-.card-header h2 {
-  color: var(--text-white);
-  margin: 0 0 var(--spacing-sm) 0;
-  font-size: 26px;
+.brand-panel > * {
+  position: relative;
+  z-index: 1;
 }
 
-.card-header p {
-  color: rgba(255, 255, 255, 0.9);
+.brand-badge {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.brand-panel h1 {
   margin: 0;
-  font-size: 14px;
-}
-
-mat-card-title {
-  color: var(--text-white);
+  font-size: clamp(2rem, 2vw, 2.8rem);
+  line-height: 1.15;
   font-weight: 700;
 }
 
-.card-content {
-  padding: var(--spacing-2xl) var(--spacing-lg);
+.brand-text {
+  margin: 18px 0 0;
+  max-width: 320px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
 }
 
-mat-form-field {
+.form-panel {
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-header {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.card-header mat-card-title {
+  font-size: 2rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
   width: 100%;
-  margin-bottom: var(--spacing-lg);
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
-}
-
-@media (max-width: 600px) {
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-.form-actions {
-  display: flex;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-2xl);
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--border-light);
+  gap: 16px;
 }
 
 .btn-register {
-  flex: 1;
-  padding: 12px var(--spacing-md);
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-  color: var(--text-white);
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: 15px;
+  margin-top: 10px;
+  height: 48px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.22);
+}
+
+.helper-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.helper-row button {
+  min-width: 0;
+  padding: 0;
   font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  box-shadow: var(--shadow-md);
 }
 
-.btn-register:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+:host ::ng-deep .mdc-notched-outline__leading,
+:host ::ng-deep .mdc-notched-outline__notch,
+:host ::ng-deep .mdc-notched-outline__trailing {
+  border-color: rgba(79, 70, 229, 0.25) !important;
 }
 
-.btn-cancel {
-  flex: 1;
-  padding: 12px var(--spacing-md);
-  background-color: var(--bg-light);
-  color: var(--text-primary);
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-md);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
+@media (max-width: 760px) {
+  .registration-card {
+    grid-template-columns: 1fr;
+  }
 
-.btn-cancel:hover {
-  background-color: var(--border-light);
-  border-color: var(--text-light);
-}
+  .brand-panel {
+    padding: 28px 24px;
+  }
 
-.form-text {
-  font-size: 12px;
-  color: var(--text-light);
-  margin-top: 4px;
-}
+  .form-panel {
+    padding: 24px 20px 28px;
+  }
 
-.error-message {
-  background-color: rgba(211, 47, 47, 0.1);
-  color: var(--error-color);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--spacing-lg);
-  border-left: 4px solid var(--error-color);
-  font-size: 14px;
-}
-
-.success-message {
-  background-color: rgba(46, 125, 50, 0.1);
-  color: var(--success-color);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--spacing-lg);
-  border-left: 4px solid var(--success-color);
-  font-size: 14px;
-}
-
-mat-error {
-  font-size: 12px !important;
-}
-
-mat-hint {
-  font-size: 12px !important;
+  .form-row {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,44 +1,69 @@
 
+<div class="login-wrapper">
+  <mat-card class="login-card" appearance="outlined">
+    <div class="brand-panel">
+      <div class="brand-badge">PM</div>
+      <p class="eyebrow">Product Management</p>
+      <h1>Bem-vindo de volta</h1>
+      <p class="brand-text">
+        Acesse sua conta e continue gerenciando seus produtos com mais organização e agilidade.
+      </p>
+    </div>
 
+    <div class="form-panel">
+      <mat-card-header class="login-header">
+        <mat-card-title>Entrar</mat-card-title>
+      </mat-card-header>
 
-<mat-card class="pesquisas">
-  <mat-card-header>
-    <mat-card-title>
-      <p>Tela de ProdutosDto</p>
-    </mat-card-title>
-     </mat-card-header>
-     <mat-card-content>
-    <mat-form-field>
-      <mat-label>
-        <p style="color: black" class="Gmail">Gmail</p>
-      </mat-label>
+      <mat-card-content>
+        <form class="login-form" autocomplete="off">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              name="gmail"
+              [(ngModel)]="gmail"
+              placeholder="seu@email.com"
+              required
+            />
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
 
-      <input matInput type="Gmail"
-             required [(ngModel)]="gmail"
-             class="Inputgmail">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <mat-label>
-        <p style="color: black">Senha</p>
-      </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Senha</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              name="senha"
+              [(ngModel)]="senha"
+              maxlength="20"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              aria-label="Mostrar senha"
+              (click)="toggleSenhaVisibility()"
+            >
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
 
-      <input matInput required nome="Password" type="Password" [(ngModel)]="senha" maxlength="20">
-    </mat-form-field>
-    <br>
-    <button mat-flat-button color="primary" (click)="logar()" class="Logar">
-      Logar
-    </button>
+          <button mat-flat-button color="primary" class="login-button" (click)="logar()" type="button">
+            Entrar
+          </button>
 
-    <br>
-  <br>
-    <br>
-
-    <button mat-flat-button color="primary" (click)="cadastra()" class="Logar">
-      Cadastra novo Usuario
-    </button>
-  </mat-card-content>
-
-
-</mat-card>
+          <div class="helper-row">
+            <span>Não tem conta?</span>
+            <button mat-button color="primary" type="button" (click)="cadastra()">
+              Cadastre-se
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
 

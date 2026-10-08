@@ -1,9 +1,10 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatCard, MatCardContent, MatCardHeader, MatCardTitle } from '@angular/material/card';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
+import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { TelaInicialService } from '../../service/tela-inicial/tela-inicial.service';
 import { UsuarioDto } from '../../model/usuario.dto';
@@ -13,6 +14,7 @@ import { UsuarioDto } from '../../model/usuario.dto';
   imports: [
     FormsModule,
     MatButton,
+    MatIconButton,
     MatCard,
     MatCardContent,
     MatCardHeader,
@@ -20,6 +22,7 @@ import { UsuarioDto } from '../../model/usuario.dto';
     MatFormField,
     MatInput,
     MatLabel,
+    MatIcon,
     MatSnackBarModule,
   ],
   templateUrl: './tela-login.component.html',
@@ -31,11 +34,17 @@ export class TelaLoginComponent {
   senha: string = '';
   nome: string = '';
   usuario = UsuarioDto;
+  hidePassword = true;
+
   constructor(
     private router: Router,
     private snackbar: MatSnackBar,
     private service: TelaInicialService,
   ) {}
+
+  toggleSenhaVisibility(): void {
+    this.hidePassword = !this.hidePassword;
+  }
 
   logar() {
     if (!this.gmail.trim() || !this.senha.trim()) {
