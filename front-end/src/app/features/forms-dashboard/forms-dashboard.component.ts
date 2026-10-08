@@ -59,7 +59,7 @@ public Atualizar(): void {
       this.salvar.emit(false)
       console.log();
     }
-  if (this.id !== undefined) {
+  if (this.id !== undefined && this.nome == "" && this.descricao == "" && this.quantidade <= 0 && this.url == "" && this.preco <= 0) {
    alert("Produto não encontrado")
 
 
