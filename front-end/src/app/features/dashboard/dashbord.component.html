@@ -1,87 +1,83 @@
-@if (atualizado !== false){
-<app-forms-dashboard
-[nome]="nome"
-[descricao]="descricao"
-[quantidade]="quantidade"
-[preco]="preco"
-[url]="url"
-[atualiza]="atualizado"
-[id]="id"
-(salvar)="recebervalor($event)"
->
-
-</app-forms-dashboard>
+@if (atualizado !== false) {
+  <app-forms-dashboard
+    [nome]="nome"
+    [descricao]="descricao"
+    [quantidade]="quantidade"
+    [preco]="preco"
+    [url]="url"
+    [atualiza]="atualizado"
+    [id]="id"
+    (salvar)="recebervalor($event)"
+  >
+  </app-forms-dashboard>
 }
 
 @if (atualizado === false) {
-<mat-card class="dashboard-card">
-  <mat-card-header class="dashboard-header">
-    <mat-card-title class="dashboard-title">
+  <div class="dashboard-wrapper">
+    <mat-card class="dashboard-card">
+      <mat-card-header class="dashboard-header">
+        <mat-card-title class="dashboard-title">Dashboard</mat-card-title>
+        <mat-card-subtitle>Lista de produtos cadastrados</mat-card-subtitle>
+      </mat-card-header>
 
-    </mat-card-title>
-    <mat-card-subtitle>
-      Lista de produtos cadastrados
-    </mat-card-subtitle>
+      <mat-card-content>
+        <div class="toolbar">
+          <div class="summary-box">
+            <span class="summary-label">Total de itens</span>
+            <strong>{{ produtos.length }}</strong>
+          </div>
 
-  </mat-card-header>
-  <button mat-raised-button color="primary" class="btn-novo" (click)="registrarProdutos()">
-    <mat-icon>add_circle</mat-icon>
-    Novo registro
-  </button>
-  <mat-card-content>
-    <div class="table-container">
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Imagem</th>
-          <th>Nome</th>
-          <th>Descrição</th>
-          <th>Quantidade</th>
-          <th>Preço</th>
-          <th>Ação</th>
-        </tr>
-        </thead>
+          <button mat-flat-button color="primary" class="btn-novo" (click)="registrarProdutos()">
+            <mat-icon>add_circle</mat-icon>
+            Novo registro
+          </button>
+        </div>
 
-        <tbody>
-          @for (produto of produtos; track produto.id) {
-            <tr>
-              <td>{{ produto.id }}</td>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
 
-              <td>
-                <img
-                  class="produto-img"
-                  [src]="produto.url"
-                  alt="Imagem do produto"
-                >
-              </td>
-
-              <td class="produto-nome">{{ produto.nome }}</td>
-              <td>{{ produto.descricao }}</td>
-              <td>{{ produto.quantidade }}</td>
-              <td class="preco">R$ {{ produto.preco }}</td>
-              <td>
-                <button mat-raised-button color="primary" class="btn-novo" (click)="Deletar(produto.id)">Deletar</button>
-                  <button mat-raised-button color="primary" class="btn-novo" (click)="Atualizar(
-                  produto.id,
-                  produto.nome,
-                   produto.descricao,
-                   produto.quantidade,
-                   produto.preco,
-                   produto.url
-                  )">Atualisar</button>
-              </td>
-            </tr>
-          } @empty {
-            <tr>
-              <td colspan="6" class="empty-message">
-                Nenhum produto encontrado.
-              </td>
-            </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-  </mat-card-content>
-</mat-card>
+            <tbody>
+              @for (produto of produtos; track produto.id) {
+                <tr>
+                  <td>#{{ produto.id }}</td>
+                  <td>
+                    <img class="produto-img" [src]="produto.url" alt="Imagem do produto" />
+                  </td>
+                  <td class="produto-nome">{{ produto.nome }}</td>
+                  <td>{{ produto.descricao }}</td>
+                  <td>{{ produto.quantidade }}</td>
+                  <td class="preco">R$ {{ produto.preco }}</td>
+                  <td>
+                    <div class="action-buttons">
+                      <button mat-icon-button color="primary" aria-label="Editar produto" (click)="Atualizar(produto.id, produto.nome, produto.descricao, produto.quantidade, produto.preco, produto.url)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" aria-label="Excluir produto" (click)="Deletar(produto.id)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="7" class="empty-message">Nenhum produto encontrado.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 }
