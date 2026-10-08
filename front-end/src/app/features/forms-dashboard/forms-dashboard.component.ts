@@ -28,8 +28,8 @@ export class FormsDashboardComponent {
   ) {}
 
   public criarProdutos(): void {
-    if ((!this.nome && !this.descricao && this.quantidade !== 0 && !this.url, this.preco < 0)) {
-      alert('prencha todos os campos');
+    if ((this.nome == "" || this.descricao == "" || this.quantidade <= 0 || this.url == "" || this.preco <= 0)) {
+      alert('Preencha todos os campos');
     } else {
       this.ServiceDasckbord.criarProdutos(
         this.nome,
@@ -44,7 +44,7 @@ export class FormsDashboardComponent {
   }
 
 public Atualizar(): void {
-    if (this.nome, this.descricao, this.quantidade, this.url, this.preco > 0) {
+    if (this.nome && this.descricao && this.quantidade > 0 && this.url && this.preco > 0) {
 
       this.ServiceDasckbord.AtualizarProdutos(
         this.id,
