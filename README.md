@@ -129,4 +129,4 @@ app/
 - Vitest: https://vitest.dev
 
 ## Criadores
-[ Jheffersonjm ]
+[![Perfil do GitHub](https://github.com/jheffersonjm.png)](https://github.com/jheffersonjm)
