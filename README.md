@@ -129,4 +129,8 @@ app/
 - Vitest: https://vitest.dev
 
 ## Criadores
-[![Perfil do GitHub](https://github.com/jheffersonjm.png)](https://github.com/jheffersonjm)
+<p align="left">
+  <a href="https://github.com/jheffersonjm">
+    <img src="https://github.com/jheffersonjm.png?size=48" width="48" height="48" alt="Abrir perfil do responsável no GitHub" style="border-radius: 50%;" />
+  </a>
+</p>
